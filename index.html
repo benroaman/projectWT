@@ -5,7 +5,7 @@
         <title>name game</title>
         <link rel="stylesheet" type="text/css" href="css/animations.css" />
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
-        <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,300|Josefin+Slab|Didact+Gothic|Fugaz+One|Reenie+Beanie|Walter+Turncoat|Fredericka+the+Great|Cabin+Sketch|Gruppo|Megrim' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Reenie+Beanie|Walter+Turncoat|Cabin+Sketch' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <h1 class="main-title header">the Name Game</h1>
@@ -29,7 +29,7 @@
         <script type="text/html" id="game-board">
             <h3 class="instructions header">identify: <span class="target-name"></span></h3>
             <h2 class="attempts-remaining">remaining attempts: <span class="attempts-remaining-actual">10</span></h2>
-            <div id="game-timer"><span id="min">01</span>:<span id="sec">00</span>:<span id="mil">00</span></div>
+            <div id="game-timer"><span id="min">00</span>:<span id="sec">30</span>:<span id="mil">00</span></div>
             <ul id="person-card-cont">
                 <% m.people.forEach(function(person) { %>
                     <li id="<%- person.name %>" class="card available">

@@ -156,13 +156,13 @@ body {
 }
 
 .overlay-green {
-    background-color: lightseagreen;
+    background-color: forestgreen;
     opacity:0.35;
 }
 
 .overlay_done {
     background-color:white;
-    opacity:.35;
+    opacity:.45;
 }
 
 .match-card {
