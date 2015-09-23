@@ -3,7 +3,7 @@ game.matchLogic = function(numAttempts, store, deckSize) {
     var attemptsRemaining = numAttempts;
     var timer = game.utils.initializeTimer();
 
-    $('.target').text('drag name cards to matching photos')
+    $('.instructions').text('drag name cards to matching photos')
 
     $('.match-card').on('mousedown', function(e) {
         var card = $(this);

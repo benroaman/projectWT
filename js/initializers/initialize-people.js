@@ -10,7 +10,7 @@ game.initializePeople = function(data) {
             }
         }
         return randomPeople;
-    }
+    };
     game.people.matts = [];
     game.people.data.forEach(function(person) {
         if (person.name.toLowerCase().indexOf('matt') !== -1) {
