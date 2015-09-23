@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html> -->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>name game</title>
+        <link rel="stylesheet" type="text/css" href="css/animations.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,300|Josefin+Slab|Didact+Gothic|Fugaz+One|Reenie+Beanie|Walter+Turncoat|Fredericka+the+Great|Cabin+Sketch|Gruppo|Megrim' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <h1 class="main-title header">the Name Game</h1>
+        <h2 class="mode-title header"></h2>
+        <div id="content"></div>
+
+        <!-- templates/fragments a.k.a. "fake scripts" -->
+        <!-- template for landing page/main menu -->
+        <script type="text/html" id="landing-page">
+            <img class="logo" src="img/zyNHEG1441841123.jpg" />
+            <nav class="main-nav">
+                <a href="#classic" class="btn">classic mode</a>
+                <a href="#mattmode" class="btn">matt mode</a>
+                <a href="#matchmode" class="btn">match mode</a>
+                <a href="#matchmattmode" class="btn">match matt mode</a>
+                <a href="#highscores" class="btn">high scores</a>
+            </nav>
+        </script>
+
+        <!-- this template is the basis for every game board -->
+        <script type="text/html" id="game-board">
+            <h3 class="instructions header">identify: <span class="target-name"></span></h3>
+            <h2 class="attempts-remaining">remaining attempts: <span class="attempts-remaining-actual">10</span></h2>
+            <div id="game-timer"><span id="min">01</span>:<span id="sec">00</span>:<span id="mil">00</span></div>
+            <ul id="person-card-cont">
+                <% m.people.forEach(function(person) { %>
+                    <li id="<%- person.name %>" class="card available">
+                        <img src="<%- person.url %>" class="image"/>
+                        <div class="overlay"></div>
+                    </li>
+                <% }) %>
+                <div class="gamestate header"></div>
+            </ul>
+            <div id="match-card-cont"></div>
+            <div class='game-nav'>
+                <div class="click-shield">&nbsp;</div>
+                <a href="#" class="btn">menu</a>
+                <a class="btn restart">restart</a>
+            </div>
+            <div id="feedback"></div>
+        </script>
+
+        <!-- this fragment contains elements for high score entry -->
+        <script type="text/html" id="highscore-entry">
+            <input type="text" class="initials"  maxlength="3" placeholder="---" />
+            <span class="score-submit btn hilight">become immortal</span>
+            <div class="no-initials-alert"></div>
+        </script>
+
+        <!-- this fragment contains menu for post entry high score display -->
+        <script type="text/html" id="post-highscore-menu">
+            <div class="post-highscore-btn-cont">
+                <a href="#" class="btn">menu</a>
+                <a class="btn restart">play</a>
+            </div>
+        </script>
+
+        <!-- this template populates match-cards for match mode -->
+        <script type="text/html" id="match-cards">
+            <% m.people.forEach(function(person) { %>
+                <div id="<%- person.name %>" class="match-card">
+                    <%- person.name %>
+                </div>
+            <% }) %>
+        </script>
+
+        <!-- this fragment is the placeholder for selected match-cards -->
+        <script type="text/html" id="filler">
+            <li class="filler-actual"><div class="filler"></div></li>
+        </script>
+
+        <!-- this template generates columns to display high scores -->
+        <script type="text/html" id="score-column">
+            <ul class="highscore-cont">
+                <li class="game-mode"></li>
+                <% for (var i = 0; i < 10; i++) { %>
+                    <% if (i === m.scores.getLatest()) { %>
+                        <li class="highscore-listing latest hilight">
+                    <% } else { %>
+                        <li class="highscore-listing">
+                    <% } %>
+                    <span><%- i + 1 %>. </span>
+                        <% if (m.scores.getScores()[i]) { %>
+                            <span><%- m.scores.getScores()[i].initials %> :</span>
+                            <span> <%- m.scores.getScores()[i].points %></span>
+                        <% } else { %>
+                            <span>--- :</span>
+                            <span> -----</span>
+                        <% } %>
+                    </li>
+                <% } %>
+            </ul>
+        </script>
+
+        <!-- here be the real scripts -->
+        <!-- dependencies -->
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/rlite.min.js"></script>
+        <script src="js/lib/lodash.js"></script>
+        <!-- game scripts -->
+        <script src="js/namespace/game.js"></script>
+        <script src="js/routing/routes.js"></script>
+        <script src="js/routing/route-default.js"></script>
+        <script src="js/routing/route-standard-board.js"></script>
+        <script src="js/routing/route-match-board.js"></script>
+        <script src="js/routing/route-highscores.js"></script>
+        <script src="js/template-handlers/standard-board-handler.js"></script>
+        <script src="js/template-handlers/match-board-handler.js"></script>
+        <script src="js/template-handlers/highscore-handler.js"></script>
+        <script src="js/initializers/initialize-router.js"></script>
+        <script src="js/initializers/initialize-people.js"></script>
+        <script src="js/initializers/initialize-stores.js"></script>
+        <script src="js/persistance/score.js"></script>
+        <script src="js/persistance/score-store.js"></script>
+        <script src="js/game-logic/standard-logic.js"></script>
+        <script src="js/game-logic/match-logic.js"></script>
+        <script src="js/utils/utils.js"></script>
+        <script src="js/utils/timer.js"></script>
+        <script src="js/utils/constants.js"></script>
+        <script src="js/initializers/init.js"></script>
+    </body>
+</html>
