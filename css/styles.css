@@ -47,7 +47,7 @@ body {
     margin-top:20px;
 }
 
-.attempts-remaining, .attempts-remaining-actual {
+.attempts-remaining {
     font-family: 'Reenie Beanie', cursive;
 }
 
@@ -98,7 +98,7 @@ body {
     font-size: 180px;
 }
 
-.target-name {
+.target-name, .attempts-remaining-actual {
     font-family: 'Reenie Beanie', cursive;
     font-size: 35px;
     color: dodgerblue;
