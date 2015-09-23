@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+body {
+    margin-top: 50px;
+}
+
 ul {
     list-style-type: none;
 }
@@ -15,64 +19,10 @@ li {
     display: inline-block;
 }
 
-a {
-    text-decoration: none;
-}
-
 span {
     color:inherit;
     font-weight:inherit;
     font-family:inherit;
-}
-
-.latest {
-    color:dodgerblue;
-    font-weight:bold;
-}
-
-body {
-    margin-top: 50px;
-}
-
-.no-initials-alert {
-    color:tomato;
-    width:100%;
-    font-size:25;
-    text-align: center;
-    font-family: 'Reenie Beanie', cursive;
-    margin-top:10px;
-}
-
-.attempts-remaining {
-    margin-top:20px;
-}
-
-.attempts-remaining {
-    font-family: 'Reenie Beanie', cursive;
-}
-
-.main-title {
-    font-size: 50px;
-    margin-bottom: 0px;
-}
-
-.mode-title {
-    margin-bottom: 0;
-}
-
-.main-nav {
-    margin-top: 50px;
-}
-
-.logo {
-    display: block;
-    border: solid 1px black;
-    height: 300px;
-    margin:auto;
-}
-
-.instructions {
-    margin-top: 0;
 }
 
 #content {
@@ -83,26 +33,34 @@ body {
     text-align: center;
 }
 
-.points-display {
-    font-size:75px;
-    font-family: 'Reenie Beanie', cursive;
-    color:forestgreen;
+  /********************/
+ /* main menu/general styles */
+/********************/
+
+.main-title {
+    font-size: 50px;
+    margin-bottom: 0px;
 }
 
-.gamestate {
-    position: absolute;
-    top: -26px;
-    left: 0px;
+.mode-title {
+    margin-bottom: 0;
+}
+
+
+.logo {
+    display: block;
+    border: solid 1px black;
+    height: 300px;
+    margin:auto;
+}
+
+.main-nav {
+    margin-top: 50px;
+}
+
+.header {
     text-align:center;
-    width: 100%;
-    font-size: 180px;
-}
-
-.target-name, .attempts-remaining-actual {
-    font-family: 'Reenie Beanie', cursive;
-    font-size: 35px;
-    color: dodgerblue;
-    vertical-align: middle;
+    font-family: 'Cabin Sketch', cursive;
 }
 
 .btn {
@@ -116,13 +74,35 @@ body {
     transition:.15s;
 }
 
-.score-submit {
-    background-color:forestgreen;
+  /***************************/
+ /* general gameplay styles */
+/***************************/
+
+.instructions {
+    margin-top: 0;
 }
 
-.header {
-    text-align:center;
-    font-family: 'Cabin Sketch', cursive;
+.attempts-remaining {
+    margin-top:20px;
+    font-family: 'Reenie Beanie', cursive;
+}
+
+#game-timer {
+    margin-top:10px;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+#min, #sec, #mil {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#person-card-cont {
+    margin-top: 25px;
+    text-align: center;
+    margin: none;
+    position: relative;
 }
 
 .card {
@@ -165,6 +145,43 @@ body {
     opacity:.45;
 }
 
+.gamestate {
+    position: absolute;
+    top: -26px;
+    left: 0px;
+    text-align:center;
+    width: 100%;
+    font-size: 180px;
+}
+
+.points-display {
+    font-size:75px;
+    font-family: 'Reenie Beanie', cursive;
+    color:forestgreen;
+}
+
+.target-name, .attempts-remaining-actual {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 35px;
+    color: dodgerblue;
+    vertical-align: middle;
+}
+
+.game-nav {
+    text-align: center;
+    margin-top: 50px;
+    position:relative;
+}
+
+.restart {
+    cursor: pointer;
+    transition: .5s;
+}
+
+  /*********************/
+ /* match mode styles */
+/*********************/
+
 .match-card {
     display: inline-block;
     min-height: 37px;
@@ -191,34 +208,17 @@ body {
     max-height: 41px;
 }
 
-#person-card-cont {
-    margin-top: 25px;
-    text-align: center;
-    margin: none;
-    position: relative;
-}
-
-#game-timer {
-    margin-top:10px;
-    font-family: monospace;
-    font-size: 20px;
-}
-
-#min, #sec, #mil {
-    font-family: inherit;
-    font-size: inherit;
-}
-
 .selected {
     transform: rotate(5deg);
     cursor: pointer;
     cursor: -webkit-grabbing;
 }
 
-.game-nav {
-    text-align: center;
-    margin-top: 50px;
-    position:relative;
+.filler {
+    border: none;
+    opacity: .5;
+    cursor: default;
+    min-width: 150px;
 }
 
 .click-shield {
@@ -228,6 +228,14 @@ body {
     top: -10px;
     opacity: 0;
     display:none;
+}
+
+  /***********************************/
+ /* high score entry/display styles */
+/***********************************/
+
+.score-submit {
+    background-color:forestgreen;
 }
 
 .initials {
@@ -247,43 +255,23 @@ body {
     outline:none
 }
 
+.no-initials-alert {
+    color:tomato;
+    width:100%;
+    font-size:25;
+    text-align: center;
+    font-family: 'Reenie Beanie', cursive;
+    margin-top:10px;
+}
+
 .game-mode {
     font-family: 'Reenie Beanie', cursive;
     font-size: 25px;
 }
 
-.filler {
-    border: none;
-    opacity: .5;
-    cursor: default;
-
-    min-width: 150px;
-}
-
-.shake {
-  -webkit-animation-name: shake;
-  animation-name: shake;
-  animation-duration: .35s;
-}
-
-.hilight {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-}
-
-.flipInX {
-  -webkit-backface-visibility: visible !important;
-  backface-visibility: visible !important;
-  -webkit-animation-duration: flipInX;
-  animation-name: flipInX;
-  animation-duration: 1s;
-}
-
-.restart {
-    cursor: pointer;
-    transition: .5s;
+.latest {
+    color:dodgerblue;
+    font-weight:bold;
 }
 
 .highscore-cont {
@@ -304,4 +292,29 @@ body {
 
 .post-highscore-btn-cont {
     margin-top: 50px;
+}
+
+  /***********************/
+ /* animation providers */
+/***********************/
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+  animation-duration: .35s;
+}
+
+.hilight {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-duration: flipInX;
+  animation-name: flipInX;
+  animation-duration: 1s;
 }
